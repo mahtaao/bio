@@ -1,676 +1,310 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Mahta Ramezanian-Panahi (@mahtaao) </title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahta Ramezanian-Panahi</title>
+<meta name="description" content="Mahta Ramezanian-Panahi. Final-year Ph.D. candidate in Computer Science at Mila and Université de Montréal. Representation learning, identifiability, foundation models for multivariate time series, dynamical systems and world models.">
+<style>
+:root {
+  --fg: #222;
+  --muted: #6b6b6b;
+  --rule: #dcdcdc;
+  --bg: #fff;
+  --link: #1a4d8f;
 }
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #e4e4e4;
+    --muted: #9a9a9a;
+    --rule: #333;
+    --bg: #121212;
+    --link: #8ab4f8;
+  }
 }
-
-html,
+html { -webkit-text-size-adjust: 100%; }
 body {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
+main { max-width: 760px; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
+header { display: flex; gap: 1.5rem; align-items: flex-start; justify-content: space-between; }
+header img { width: 120px; height: auto; border-radius: 4px; flex: none; }
+h1 { font-size: 1.75rem; line-height: 1.2; margin: 0 0 .35rem; }
+.lede { margin: 0 0 .6rem; }
+.links { color: var(--muted); font-size: .95rem; margin: 0; }
+.links a { margin-right: .35rem; white-space: nowrap; }
+.links a:not(:last-child)::after { content: "\00a0\00b7"; color: var(--muted); }
+nav { margin-top: 1.25rem; font-size: .9rem; color: var(--muted); }
+nav a { margin-right: .9rem; color: var(--muted); }
+nav a:hover { color: var(--link); }
 
 h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	padding-inline-start: 0;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.page-description {
-    margin-bottom: 2em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-	empty-cells: show;
-}
-.simple-table td {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table th {
-	height: 29px;
-	min-width: 120px;
-}
-
-.simple-table-header-color {
-	background: rgb(247, 246, 243);
-	color: black;
-}
-.simple-table-header {
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(120, 119, 116, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(159, 107, 83, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(217, 115, 13, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 145, 47, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(68, 131, 97, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(51, 126, 169, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(144, 101, 176, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(193, 76, 138, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(212, 76, 71, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-.select-value-color-pageGlass { background-color: undefined; }
-.select-value-color-washGlass { background-color: undefined; }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="a07e1e52-678f-47ec-9c7f-d85df7ed5812" class="page sans"><header><h1 class="page-title">Mahta Ramezanian-Panahi (@mahtaao) </h1><p class="page-description"></p></header><div class="page-body"><div class="column-list"><div style="width:81.25%" class="column"><ul class="bulleted-list"><li style="list-style-type:disc">Final-year Ph.D. Candidate in Computer Science at the <a href="https://mila.quebec/en/">Mila - Quebec AI Institute</a> &amp; <a href="https://diro.umontreal.ca/accueil/">Université de Montréal</a> (DIRO, UdeM)<ul class="bulleted-list"><li style="list-style-type:circle">Lab: <a href="https://www.irina-lab.ai/">AAI CERC</a> (Prof. Irina Rish)</li></ul></li></ul><ul class="bulleted-list"><li style="list-style-type:disc">M.Sc. in Physics and Astronomy from the University of Waterloo</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">B.Sc. in Physics from Sharif University of Technology</li></ul></div><div style="width:18.749999999999996%" class="column"><figure class="image"><a href="Mahta%20Ramezanian-Panahi%20(@mahtaao)%20a07e1e52678f47ec9c7fd85df7ed5812/Untitled.png"><img style="width:240px" src="Mahta%20Ramezanian-Panahi%20(@mahtaao)%20a07e1e52678f47ec9c7fd85df7ed5812/Untitled.png"/></a></figure></div></div><p class=""><strong>Academic Interests:</strong></p><ul class="bulleted-list"><li style="list-style-type:disc">Representation learning and identifiability</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Foundation models and tokenization for multivariate time series</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Dynamical systems and world models</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Complex systems</li></ul><p class=""><strong>Professional Experience:</strong></p><ul class="bulleted-list"><li style="list-style-type:disc">Scientist in Residence, Mila Applied Machine Learning Research Team (AMLRT) &amp; Seoul AI Hub, Montreal [Jun. - Sep. 2026]: 15-week residency in partnership with the City of Seoul; designed personalized, data-driven product recommendation and analysis systems for a consumer product line.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Resident Scientist, <a href="https://sevobioscience.com/en/">SEVO Bioscience</a>, Quebec &amp; Nova Scotia [Sep. - Dec. 2025]: protein language models; alignment, overlay, and conservation-scoring tools for large-scale sequence modeling; active-learning framework feeding experimental results back into the training pipeline.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Research Engineer, Hexoskin, Montreal [Jun. - Aug. 2023]: production ML for personalized product analytics with automated preprocessing, quality control, time-series feature extraction, and model retraining.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Student Researcher, Mila [Apr. 2020 - Jan. 2022]: representation learning and generative models for multivariate time series; latent differential-equation models in Julia; organized and moderated the <a href="https://sites.google.com/site/irinarish/readinggroups/dynamical-systems">Dynamical Systems Reading Group</a>.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Teaching assistant for graduate-level courses at UdeM: <a href="https://sites.google.com/d/1jtvipuli5sA_B--a41Kw8YA1hUjfC7T1/p/1n7CyMGXQeAD7KB-SC3Dit-S1GQ2EgzVv/edit">Towards AGI</a> (by Irina Rish) and <a href="https://sites.google.com/view/ift6135b-h2024/course-description?authuser=0">Representation Learning</a> (by Aaron Courville)</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Graduate Research, Teaching &amp; Lab Assistant, University of Waterloo [2017 - 2019]: statistical modeling and computational methods; ran lab and tutorial sessions and mentored 300+ undergraduate students.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Research Assistant, Sharif University of Technology [2016 - 2017]: multi-scale analysis of positional time series.</li></ul><p class=""><strong>Research &amp; Publications:</strong></p><ul class="bulleted-list"><li style="list-style-type:disc"><em>Effective Latent Differential Equation Models via Attention and Multiple Shooting</em>, TMLR. <a href="https://youtu.be/XYv10fuumCQ">video</a> · <a href="https://github.com/gabrevaya/TMLR_GOKU-UI">code</a></li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Generative Models of Brain Dynamics</em>, Frontiers in Artificial Intelligence, 2022. <a href="https://doi.org/10.3389/frai.2022.807406">link</a></li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>A Position on Causal Representation Learning Without Intervention</em>, single-author position paper, under review at the NeurIPS 2026 Position Paper Track. Argues that identifiability claims from observational data are unfalsifiable without synthetic-ground-truth or interventional benchmarks.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Validity Conditions for Geometry-Aware EEG Tokenization</em>, ML4Health 2026 (proceedings track). In geometry-aware tokenization of multichannel time series, spatial validity and quantization matter more than backbone pretraining; discrete tokens feeding a Qwen3 causal LM, with language-pretrained vs. random backbones.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>NeuroBuilder: Auditable Agentic Data Curation for Neuro-Foundation Models</em>, co-first author; submitted to SMASH 2026 and a NeurIPS 2026 workshop. LLM agents that turn heterogeneous scientific datasets into validated, auditable data objects.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Inverse Dynamics Enables Cross-Modal Generalization in World Models</em>, working paper.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Simulation-Augmented Classification of Interacting Dynamical Systems</em>, working paper. Interpretable random forests over features from large-scale simulated interacting dynamics.</li></ul><p class=""><strong>Talks &amp; Presentations:</strong></p><ul class="bulleted-list"><li style="list-style-type:disc"><em>OmnEEG: Unifying Spatial Embedding for Scalable Cross-Dataset EEG Foundation Models</em>. Contributed talk; also chaired the Foundation Models I session. International Symposium on Forecasting (ISF), Montreal, 2026.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Interoperable Foundation Models for Neural Time Series</em>. Contributed talk, UNIQUE Scientific Retreat, Oct. 2025.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Dynamics Identification for Multivariate Time Series</em>. Lightning talk, Simons Collaboration Kickoff Workshop, Stanford, 2025.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Time-contrastive Unsupervised Representation Learning for EEG Data</em>. Accepted presentation, INCF Neuroinformatics Assembly, 2024.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>GOKU-UI: Ubiquitous Inference through Attention and Multiple Shooting</em>. Oral spotlight, DLDE III Workshop, NeurIPS 2023, New Orleans.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Generative Models for Neural Dynamics</em>. Talk, UNIQUE Student Symposium, Université de Montréal, Jun. 2023. <a href="https://www.youtube.com/watch?v=Q6UzySOg0eo">video</a></li></ul><ul class="bulleted-list"><li style="list-style-type:disc"><em>Generative Models with Latent Differential Equations in Julia</em>. Lightning talk (co-author), <a href="https://live.juliacon.org/talk/QEANKW">JuliaCon 2021</a>.</li></ul><p class=""><strong>Open-Source Software:</strong></p><ul class="bulleted-list"><li style="list-style-type:disc"><a href="https://github.com/brain2vec/OmnEEG"><em>OmnEEG</em></a>: geometry-aware tokenization for multichannel time series. Converts variable-layout multichannel signals into fixed-length token sequences via parameter-free spatial bases (3D spherical harmonics / 2D spatial interpolation) that preserve channel topology; unifies heterogeneous datasets into one manifest-driven PyTorch pipeline with spatial-layout visualization.</li></ul><p class=""><strong>Awards &amp; Honors:</strong></p><ul class="bulleted-list"><li style="list-style-type:disc">Mila Scientist in Residence (Seoul AI Hub &amp; City of Seoul partnership) [2026]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Top-10 team (as a solo participant), <a href="https://eeg2025.github.io/">EEG Foundation Challenge</a>, NeurIPS 2025 Competition Track [2025]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">IVADO Catalyst Grant, Regroupement 1, 80,000 CAD (foundation models for complex time-series dynamics) [2025]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Simons Collaboration Travel Award [2025]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Mila NeurIPS 2025 Travel Scholarship [2025]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Financement d&#x27;UdeM International [2025]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">MoML @ MIT, selected admission award [2025]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">UNIQUE Excellence Scholarship [2023]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Upper Bound Talent Bursary, North America [2023]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Amii Talent Bursary [2022]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">UdeM Exemption Scholarship for International Students [2021]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">International Master&#x27;s and Doctoral Student Awards [2017-2019]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Marie Curie Graduate Student Award [2017-2019]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Science Graduate Award [2017-2019]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">RoboCup Competitions, Rescue Simulation League [2nd place, 2011]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Khwarizmi National Competitions [1st place, 2011]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Amir Kabir International Competitions [3rd place, 2011]</li></ul><p class=""><strong>Volunteer Experience:</strong></p><ul class="bulleted-list"><li style="list-style-type:disc">Co-organizer, <a href="https://sites.google.com/mila.quebec/8th-scaling-workshop/">8th Neural Scaling Workshop</a> @ NeurIPS 2024: forum on challenges and advances in scaling foundation models, with speakers from OpenAI, MBZUAI, Vector Institute, and Snowflake.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Student representative, Research Computing Committee (formerly IDT Committee), Mila [Jan. 2025 - Present]</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Reviewer for Workshop on Deep Learning and Differential Equations, NeurIPS 2023</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Reviewer for New in ML Workshop, NeurIPS 2023</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Social Media Coordinator, Data for Good, Waterloo [2019 - 2021]: coordinated regional events and record-breaking volunteer recruitment for datathons and data nights.</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">English Instructor, Maison de l&#x27;amitié, Montreal [2020 - Present]: placement tests for incoming students and conversation classes.</li></ul><p class=""><strong>Personal Interests:</strong></p><ul class="bulleted-list"><li style="list-style-type:disc">Fluent in EN, FR, FA</li></ul><ul class="bulleted-list"><li style="list-style-type:disc">Committed to causes related to AI governance, fighting climate change, freedom, women&#x27;s rights, and education justice</li></ul><p class=""><strong>Online Presence:</strong></p><p class="">✉️  <a href="https://forms.gle/urWTYVtFxHnoreZb8">Contact form</a></p><p class="">🐈‍⬛  <a href="https://github.com/mahtaao">GitHub</a></p><p class="">🎓  <a href="https://scholar.google.com/citations?user=xQ3CtQwAAAAJ&amp;hl=en&amp;oi=sra">Google Scholar</a></p><ul class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.linkedin.com/in/mahtaao/">LinkedIn</a></li></ul><p class="">📚  <a href="https://www.goodreads.com/user/show/2984409-mahtaa">Goodreads</a></p><p class="">✖️  <a href="https://twitter.com/Mahtaao">Twitter</a></p><p class=""><a href="https://scholar.social/@mahta">🐘  mastodon</a></p><p class="">I like to make learning more <a href="https://arxiv.org/abs/1901.04592">interpretable</a>. Feel free to <a href="https://forms.gle/urWTYVtFxHnoreZb8">message me</a>. </p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+  font-size: .95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin: 2.5rem 0 .8rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--rule);
+}
+ul { padding-left: 1.2rem; margin: 0; }
+li { margin: .4rem 0; }
+p { margin: 0 0 .6rem; }
+
+.entries { list-style: none; padding: 0; }
+.entries li {
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  column-gap: 1rem;
+  margin: .65rem 0;
+}
+.when { color: var(--muted); font-variant-numeric: tabular-nums; font-size: .95rem; padding-top: .05rem; }
+.head strong { font-weight: 600; }
+.desc { font-size: .95rem; margin-top: .1rem; }
+.pubs li { margin: .7rem 0; }
+.pubs em { font-style: italic; }
+.meta { color: var(--muted); }
+.sub { margin-top: .25rem; }
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+@media (max-width: 560px) {
+  header { flex-direction: column-reverse; gap: 1rem; }
+  header img { width: 96px; }
+  .entries li { grid-template-columns: 1fr; }
+  .when { font-size: .85rem; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div>
+    <h1>Mahta Ramezanian-Panahi</h1>
+    <p class="lede">Final-year Ph.D. candidate in Computer Science at <a href="https://mila.quebec/en/">Mila &ndash; Quebec AI Institute</a> and <a href="https://diro.umontreal.ca/accueil/">Université de Montréal</a> (DIRO), in the <a href="https://www.irina-lab.ai/">AAI CERC</a> lab of Prof. Irina Rish.</p>
+    <p class="links">
+      <a href="https://forms.gle/urWTYVtFxHnoreZb8">Contact</a>
+      <a href="https://github.com/mahtaao">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=xQ3CtQwAAAAJ&amp;hl=en">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/mahtaao/">LinkedIn</a>
+      <a href="https://x.com/Mahtaao">X</a>
+      <a href="https://scholar.social/@mahta">Mastodon</a>
+      <a href="https://www.goodreads.com/user/show/2984409-mahtaa">Goodreads</a>
+    </p>
+    <nav>
+      <a href="#interests">Interests</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#software">Software</a>
+      <a href="#awards">Awards</a>
+      <a href="#service">Service</a>
+    </nav>
+  </div>
+  <img src="Mahta%20Ramezanian-Panahi%20(@mahtaao)%20a07e1e52678f47ec9c7fd85df7ed5812/Untitled.png" alt="Mahta Ramezanian-Panahi">
+</header>
+
+<h2 id="interests">Research interests</h2>
+<ul>
+  <li>Representation learning and identifiability</li>
+  <li>Foundation models and tokenization for multivariate time series</li>
+  <li>Dynamical systems and world models</li>
+  <li>Complex systems</li>
+</ul>
+
+<h2 id="education">Education</h2>
+<ul class="entries">
+  <li>
+    <span class="when">2023 &ndash; present</span>
+    <div>
+      <div class="head"><strong>Ph.D. candidate in Computer Science</strong>, Université de Montréal &amp; Mila &ndash; Quebec AI Institute</div>
+      <div class="desc">Teaching assistant for <a href="https://sites.google.com/d/1jtvipuli5sA_B--a41Kw8YA1hUjfC7T1/p/1n7CyMGXQeAD7KB-SC3Dit-S1GQ2EgzVv/edit">Towards AGI</a> (Irina Rish) and <a href="https://sites.google.com/view/ift6135b-h2024/course-description?authuser=0">Representation Learning</a> (Aaron Courville).</div>
+    </div>
+  </li>
+  <li>
+    <span class="when">2017 &ndash; 2019</span>
+    <div class="head"><strong>M.Sc. in Physics and Astronomy</strong>, University of Waterloo</div>
+  </li>
+  <li>
+    <span class="when">2012 &ndash; 2017</span>
+    <div class="head"><strong>B.Sc. in Physics</strong>, minor in Energy Engineering, Sharif University of Technology</div>
+  </li>
+</ul>
+
+<h2 id="experience">Experience</h2>
+<ul class="entries">
+  <li>
+    <span class="when">Jun &ndash; Sep 2026</span>
+    <div>
+      <div class="head"><strong>Scientist in Residence</strong>, Mila Applied Machine Learning Research Team (AMLRT) &amp; Seoul AI Hub, Montreal</div>
+      <div class="desc">15-week residency in partnership with the City of Seoul and Seoul AI Hub. Designed personalized, data-driven product recommendation and analysis systems for a consumer product line.</div>
+    </div>
+  </li>
+  <li>
+    <span class="when">Sep &ndash; Dec 2025</span>
+    <div>
+      <div class="head"><strong>Resident Scientist</strong>, <a href="https://www.sevobioscience.com/">SEVO Bioscience</a>, Quebec &amp; Nova Scotia</div>
+      <div class="desc">Protein language models and design: alignment, overlay, and conservation-scoring tools for large-scale sequence modeling, and foundation models integrating heterogeneous scientific databases. Built an active-learning framework that feeds experimental results back into the training pipeline.</div>
+    </div>
+  </li>
+  <li>
+    <span class="when">Jun &ndash; Aug 2023</span>
+    <div>
+      <div class="head"><strong>Research Engineer</strong>, Hexoskin, Montreal</div>
+      <div class="desc">Production ML for personalized product analytics: automated preprocessing, quality control, time-series feature extraction, and model retraining. Monitored performance, updated back-end systems, and resolved data-quality issues.</div>
+    </div>
+  </li>
+  <li>
+    <span class="when">Apr 2020 &ndash; Jan 2022</span>
+    <div>
+      <div class="head"><strong>Student Researcher</strong>, Mila, Montreal</div>
+      <div class="desc">Generative models with latent differential equations in Julia: domain-aware, interpretable inference of dynamics (<a href="https://pretalx.com/juliacon2021/talk/QEANKW/">JuliaCon 2021</a>). Organized and moderated the <a href="https://sites.google.com/site/irinarish/readinggroups/dynamical-systems">Dynamical Systems Reading Group</a>; advised the Innovation, Development, and Technologies team on its solutions portfolio.</div>
+    </div>
+  </li>
+  <li>
+    <span class="when">2017 &ndash; 2019</span>
+    <div>
+      <div class="head"><strong>Graduate Research, Teaching &amp; Lab Assistant</strong>, University of Waterloo</div>
+      <div class="desc">Statistical modeling of copolymer melts; simultaneous computation in MATLAB, Fortran, and Python. Ran lab and tutorial sessions and mentored 300+ undergraduate students.</div>
+    </div>
+  </li>
+  <li>
+    <span class="when">2016 &ndash; 2017</span>
+    <div>
+      <div class="head"><strong>Research Assistant</strong>, Sharif University of Technology</div>
+      <div class="desc">Multi-scale analysis of positional time series of Brownian motion (MATLAB).</div>
+    </div>
+  </li>
+</ul>
+
+<h2 id="publications">Publications &amp; preprints</h2>
+<ul class="pubs">
+  <li><em>Cross-Modal World Models for Control in a Neural-Mass Network.</em> <span class="meta">Submitted, Cosyne 2027.</span> Shared forward/inverse-dynamics world-model latents transfer across sensors and plan cross-modally without an alignment loss, outperforming contrastive alignment.</li>
+  <li><em>NeuroBuilder: Auditable Agentic Data Curation for Neuro-Foundation Models.</em> <span class="meta">Co-first author. Submitted, SMASH 2026 Symposium and NeurIPS 2026 workshop.</span> LLM agents that turn heterogeneous scientific datasets into validated, auditable data objects. <a href="https://openreview.net/forum?id=n70sp3Bc5F">OpenReview</a></li>
+  <li><em>Bring Your Own EEG: Auditable Data Curation for Foundation Models.</em> <span class="meta">Demo submitted, Foundation Models for the Brain and Body Workshop, NeurIPS 2026.</span> Interactive demo of the NeuroBuilder curation workflow. <a href="https://brainbodyfm-workshop.github.io/call-for-demos.html">Workshop</a></li>
+  <li><em>Validity Conditions for Geometry-Aware EEG Tokenization.</em> <span class="meta">ML4Health 2026, proceedings track.</span> In geometry-aware tokenization of multichannel time series, spatial validity and quantization matter more than backbone pretraining: discrete tokens feeding a Qwen3 causal LM, a collapse-aware reading of token cross-entropy, and language-pretrained vs. random backbones. <a href="https://openreview.net/forum?id=nvzkLrgoEP">OpenReview</a></li>
+  <li><em>An Unfalsifiable Inverse Problem: Latent-Source Identifiability from Non-Stationary Timeseries.</em> <span class="meta">Single-author. Accepted, WiML @ NeurIPS 2026.</span> Synthetic-ground-truth critique showing that nonlinear-ICA and causal-representation-learning identifiability claims on observational multichannel recordings are unfalsifiable. <a href="https://openreview.net/forum?id=ld3hhNmJxh">OpenReview</a></li>
+  <li><em>A Position on Causal Representation Learning Without Intervention.</em> <span class="meta">Single-author position paper. Submitted, AISTATS 2027.</span> Argues that identifiability claims from observational data are unfalsifiable without synthetic-ground-truth or interventional benchmarks.</li>
+  <li><em>Simulation-Augmented Classification of Interacting Dynamical Systems.</em> <span class="meta">Working paper.</span> Improved classification via interpretable random forests over features from large-scale simulated interacting dynamics.</li>
+  <li><em>Effective Latent Differential Equation Models via Attention and Multiple Shooting.</em> <span class="meta">TMLR.</span> <a href="https://youtu.be/XYv10fuumCQ">Video</a> &middot; <a href="https://github.com/gabrevaya/TMLR_GOKU-UI">Code</a></li>
+  <li><em>Generative Models of Brain Dynamics.</em> <span class="meta">Frontiers in Artificial Intelligence, 2022.</span> <a href="https://doi.org/10.3389/frai.2022.807406">Paper</a></li>
+</ul>
+
+<h2 id="talks">Talks &amp; presentations</h2>
+<ul class="entries">
+  <li>
+    <span class="when">Sep 2026</span>
+    <div class="head"><em>Multimodal World Models: Alignment, Prediction, and Control.</em> Poster, Simons Collaboration on the Physics of Learning and Neural Computation Annual Meeting, Simons Foundation, New York.</div>
+  </li>
+  <li>
+    <span class="when">2026</span>
+    <div class="head"><em>OmnEEG: Unifying Spatial Embedding for Scalable Cross-Dataset EEG Foundation Models.</em> Contributed talk; also chaired the Foundation Models I session. International Symposium on Forecasting (ISF), Montreal.</div>
+  </li>
+  <li>
+    <span class="when">Oct 2025</span>
+    <div class="head"><em>Interoperable Foundation Models for Neural Time Series.</em> Contributed talk, UNIQUE Scientific Retreat.</div>
+  </li>
+  <li>
+    <span class="when">2025</span>
+    <div class="head"><em>Dynamics Identification for Multivariate Time Series.</em> Lightning talk, Simons Collaboration Kickoff Workshop, Stanford.</div>
+  </li>
+  <li>
+    <span class="when">2024</span>
+    <div class="head"><em>Time-contrastive Unsupervised Representation Learning for EEG Data.</em> Accepted presentation, INCF Neuroinformatics Assembly.</div>
+  </li>
+  <li>
+    <span class="when">Dec 2023</span>
+    <div class="head"><em>GOKU-UI: Ubiquitous Inference through Attention and Multiple Shooting.</em> Oral spotlight, DLDE III Workshop, NeurIPS 2023, New Orleans.</div>
+  </li>
+  <li>
+    <span class="when">Jun 2023</span>
+    <div class="head"><em>Generative Models for Neural Dynamics.</em> Talk, UNIQUE Student Symposium, Université de Montréal. <a href="https://www.youtube.com/watch?v=Q6UzySOg0eo">Video</a></div>
+  </li>
+  <li>
+    <span class="when">2021</span>
+    <div class="head"><em>Generative Models with Latent Differential Equations in Julia.</em> Lightning talk (co-author), <a href="https://pretalx.com/juliacon2021/talk/QEANKW/">JuliaCon 2021</a>.</div>
+  </li>
+</ul>
+
+<h2 id="software">Software &amp; projects</h2>
+<ul class="pubs">
+  <li><strong><a href="https://github.com/brain2vec/OmnEEG">OmnEEG</a></strong>: geometry-aware tokenization for multichannel time series. Converts variable-layout multichannel signals into fixed-length token sequences via parameter-free spatial bases (3D spherical harmonics / 2D spatial interpolation) that preserve channel topology; unifies heterogeneous datasets into one manifest-driven PyTorch pipeline with spatial-layout visualization. Open source.</li>
+  <li><strong>Time-series foundation model via LLM-vocabulary tokenization.</strong> Pretrains a transformer LM on multivariate time series by mapping them into a pretrained LLM's token space: a VQ-VAE quantizes signals into a codebook aligned to Qwen3's embedding/LM head, trained with next-token cross-entropy (LoRA, bf16, multi-node SLURM). Tests whether language-pretrained sequence priors transfer to a non-text modality.</li>
+  <li><strong>Schema-invariant transfer &amp; pre-registered evaluation.</strong> Analytic spherical-harmonic tokenization yields a layout-invariant representation enabling zero-shot transfer across heterogeneous schemas (19&ndash;129 channels). Evaluated with pre-registered hypotheses, channel-holdout probes, scrambled-channel controls, and trivial baselines over 3 seeds.</li>
+  <li><strong>Earlier.</strong> Phase transition detection via CNN in quantum systems (<a href="https://github.com/Mahtaao/Identifying-phase-transitions-using-ML">code</a>); deterministic vs. stochastic search for cargo planning optimization (<a href="https://github.com/Mahtaao/AIND-Planning">code</a>); fault tolerance and adversarial robustness in feedforward networks, C++ (<a href="https://github.com/Mahtaao/NN-Resilience">code</a>); time-varying graphical lasso for network inference (MATLAB); fractal analysis and stochastic modeling of Brownian motion with a real-time signal-processing pipeline for optical tweezers (MATLAB).</li>
+</ul>
+
+<h2 id="awards">Awards &amp; honors</h2>
+<ul class="entries">
+  <li><span class="when">2026</span><div class="head">Mila Scientist in Residence (Seoul AI Hub &amp; City of Seoul partnership)</div></li>
+  <li><span class="when">2025</span><div class="head">Top-10 team (as a solo participant), <a href="https://eeg2025.github.io/">EEG Foundation Challenge</a>, NeurIPS 2025 Competition Track</div></li>
+  <li><span class="when">2025</span><div class="head">IVADO Catalyst Grant, Regroupement 1, 80,000 CAD (foundation models for complex time-series dynamics)</div></li>
+  <li><span class="when">2025</span><div class="head">Simons Collaboration Travel Award</div></li>
+  <li><span class="when">2025</span><div class="head">Mila NeurIPS 2025 Travel Scholarship</div></li>
+  <li><span class="when">2025</span><div class="head">Financement d'UdeM International</div></li>
+  <li><span class="when">2025</span><div class="head">MoML @ MIT, selected admission award</div></li>
+  <li><span class="when">2023</span><div class="head">UNIQUE Excellence Scholarship</div></li>
+  <li><span class="when">2023</span><div class="head">Upper Bound Talent Bursary, North America</div></li>
+  <li><span class="when">2022</span><div class="head">Amii Talent Bursary</div></li>
+  <li><span class="when">2021</span><div class="head">UdeM Exemption Scholarship for International Students</div></li>
+  <li><span class="when">2017 &ndash; 2019</span><div class="head">International Master's and Doctoral Student Award, Marie Curie Graduate Student Award, and Science Graduate Award, University of Waterloo</div></li>
+  <li><span class="when">2011</span><div class="head">2nd place, RoboCup World Championship, Rescue Simulation League</div></li>
+  <li><span class="when">2011</span><div class="head">1st place, Khwarizmi National Competitions</div></li>
+  <li><span class="when">2011</span><div class="head">3rd place, Amir Kabir International Competitions</div></li>
+</ul>
+
+<h2 id="service">Service &amp; volunteering</h2>
+<ul class="entries">
+  <li>
+    <span class="when">2025 &ndash; present</span>
+    <div class="head">Student representative, Research Computing Committee (formerly IDT Committee), Mila</div>
+  </li>
+  <li>
+    <span class="when">2024</span>
+    <div class="head">Co-organizer, <a href="https://sites.google.com/mila.quebec/8th-scaling-workshop/">8th Neural Scaling Workshop</a> @ NeurIPS 2024: forum on challenges and advances in scaling foundation models, with speakers from OpenAI, MBZUAI, Vector Institute, and Snowflake.</div>
+  </li>
+  <li>
+    <span class="when">2023</span>
+    <div class="head">Reviewer, Workshop on Deep Learning and Differential Equations (DLDE) and New in ML Workshop, NeurIPS 2023</div>
+  </li>
+  <li>
+    <span class="when">2020 &ndash; present</span>
+    <div class="head">English instructor, Maison de l'amitié, Montreal: placement tests for incoming students and conversation classes.</div>
+  </li>
+  <li>
+    <span class="when">2019 &ndash; 2021</span>
+    <div class="head">Social media coordinator, Data for Good, Waterloo: coordinated regional events and record-breaking volunteer recruitment for datathons and data nights.</div>
+  </li>
+</ul>
+
+<h2 id="skills">Skills</h2>
+<p>Agentic coding and research; PyTorch Lightning, HuggingFace, DeepSpeed, JAX; time-series modeling and forecasting; generative foundation models; multi-node distributed training (SLURM) and HPC; WandB, Git, Docker, Linux.</p>
+
+<h2 id="personal">Personal</h2>
+<ul>
+  <li>Fluent in English, French, and Persian.</li>
+  <li>Committed to causes related to AI governance, fighting climate change, freedom, women's rights, and education justice.</li>
+</ul>
+
+<footer>
+  <p>I like to make learning more <a href="https://arxiv.org/abs/1901.04592">interpretable</a>. Feel free to <a href="https://forms.gle/urWTYVtFxHnoreZb8">message me</a>.</p>
+  <p>Last updated September 2026.</p>
+</footer>
+
+</main>
+</body>
+</html>
